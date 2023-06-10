@@ -2,3 +2,4 @@ src/env
 .vscode
 .venv
 .pytest_cache
+__pycache__

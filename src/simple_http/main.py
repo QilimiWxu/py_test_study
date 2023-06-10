@@ -1,7 +1,7 @@
 
 from flask import Flask, request
  
-app = Flask("simple_http")
+app = Flask("src/simple_http")
 
 @app.route('/version', methods=["GET"])
 def get_version():

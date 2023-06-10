@@ -1,22 +1,10 @@
 
-from flask import Flask, request, jsonify
+from flask import Flask, request
  
-app = Flask(__name__)
+app = Flask("simple_http")
 
-@app.route('/add', methods=["GET", "POST"])
-def calculate():
-    if request.method == 'GET':
-        params = request.args
-    else:
-        params = request.form if request.form else request.json
-    a = params.get("a", 0)
-    b = params.get("b", 0)
-    c = int(a) + int(b)
-    res = {"result": c}
-    return jsonify(content_type='application/json;charset=utf-8', reason='success', charset='utf-8', status='200', content=res)
-
-@app.route('/version', methods=["GET", "POST"])
-def get_vetsion():
+@app.route('/version', methods=["GET"])
+def get_version():
     res = {'status': 'ok', "version": 'v1.0.0'}
     return res
 
@@ -28,6 +16,18 @@ def api_login():
     if(user == 'admin' and pwd == "123456"):
         return {"status": 'ok', 'session': '12312123'}
     return {"status": 'fail', 'err': 'pwd failed!','session': '12312123'} 
+
+
+@app.route('/add', methods=["GET", "POST"])
+def calculate():
+    if request.method == 'GET':
+        params = request.args
+    else:
+        params = request.form if request.form else request.json
+    a = params.get("a", 0)
+    b = params.get("b", 0)
+    c = int(a) + int(b)
+    return {"result": c}
 
 
  

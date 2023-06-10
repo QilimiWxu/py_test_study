@@ -54,8 +54,6 @@ def test_case03():
 if __name__ == '__main__':
     if(os.path.exists('src/pytest1/main.py')):
         pytest.main(['-s', 'src/pytest1/main.py'])
-    elif(os.path.exists('pytest1/main.py')):
-        pytest.main(['-s', 'pytest1/main.py'])
     elif(os.path.exists('main.py')):
         pytest.main(['-s', 'main.py'])
     

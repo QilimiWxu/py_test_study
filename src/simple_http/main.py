@@ -1,9 +1,4 @@
-# -*- coding: UTF-8 -*-
-# !/usr/bin/python
-# @time     :2019/10/12 11:11
-# @author   :Mo
-# @function :service of flask
- 
+
 from flask import Flask, request, jsonify
  
 app = Flask(__name__)

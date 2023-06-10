@@ -1,4 +1,5 @@
 import pytest, requests, json
+import os
 
 host = '127.0.0.1:8868'
 
@@ -28,5 +29,10 @@ def test_case03():
     assert(1)
 
 if __name__ == '__main__':
-    pytest.main(['-s', 'src/pytest1/main.py'])
+    if(os.path.exists('src/pytest1/main.py')):
+        pytest.main(['-s', 'src/pytest1/main.py'])
+    elif(os.path.exists('pytest1/main.py')):
+        pytest.main(['-s', 'pytest1/main.py'])
+    elif(os.path.exists('main.py')):
+        pytest.main(['-s', 'main.py'])
     
